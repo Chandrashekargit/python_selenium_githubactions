@@ -11,14 +11,17 @@ import os
 from github_actions.utility import Toolbox
 
 
-@mark.login
-class Test_login(Toolbox):
+@mark.landing_page
+class TestLandinPage(Toolbox):
 
-    def test_signin_and_login(self):
+    def test_landing_page(self):
         Toolbox.login_to_app(self)
+        self.driver.back()
+        # check for text
+        check_for_text = Toolbox.wait(self).until(EC.presence_of_element_located((By.XPATH, "//a[.='Zero Bank']"))).text
+        assert check_for_text == "Zero Bank"
 
     def test_logout(self):
-        self.driver.back()
         Toolbox.logout(self)
 
     def test_tear_up(self):
