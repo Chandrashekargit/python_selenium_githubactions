@@ -18,8 +18,10 @@ class Test_login(Toolbox):
         Toolbox.login_to_app(self)
 
     def test_logout(self):
+        time.sleep(5)
         self.driver.back()
         Toolbox.logout(self)
+        time.sleep(5)
 
     def test_tear_up(self):
         Toolbox.tear_up(self)
