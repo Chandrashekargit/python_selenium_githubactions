@@ -21,8 +21,8 @@ class TestLandinPage(Toolbox):
         check_for_text = Toolbox.wait(self).until(EC.presence_of_element_located((By.XPATH, "//a[.='Zero Bank']"))).text
         assert check_for_text == "Zero Bank"
 
-    # def test_logout(self):
-    #     Toolbox.logout(self)
+    def test_logout(self):
+        Toolbox.logout(self)
 
     def test_tear_up(self):
         Toolbox.tear_up(self)
