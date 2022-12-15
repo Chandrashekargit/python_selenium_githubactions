@@ -17,7 +17,7 @@ def setup(request):
     load_dotenv()
     option = Options()
     option.add_argument('--headless')
-    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=option)
     driver.get(os.getenv('BASE_URL'))
     driver.maximize_window()
     request.cls.driver = driver
